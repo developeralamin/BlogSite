@@ -25,7 +25,7 @@ Auth::routes();
 Route::group(['as' =>'admin.','prefix'=>'admin','middleware' =>['auth','admin']],function(){
 
 Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class,'index'])->name('dashboard');
-
+Route::resource('tags', App\Http\Controllers\Admin\TagController::class);
 
 });
 
