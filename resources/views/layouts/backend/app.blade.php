@@ -13,8 +13,8 @@
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
  
     <!-- Styles -->
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
@@ -44,14 +44,14 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="{{ asset('assets/backend/css/themes/all-themes.css')}}" rel="stylesheet" />
 
-
-
      @stack('css')
 </head>
+
+
 <body class="theme-red">
 
    <!-- Page Loader -->
- {{--    <div class="page-loader-wrapper">
+    <div class="page-loader-wrapper">
         <div class="loader">
             <div class="preloader">
                 <div class="spinner-layer pl-red">
@@ -65,7 +65,7 @@
             </div>
             <p>Please wait...</p>
         </div>
-    </div> --}}
+    </div>
     <!-- #END# Page Loader -->
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
@@ -81,14 +81,11 @@
         </div>
     </div>
     <!-- #END# Search Bar -->
+
     <!-- Top Bar -->
-    
-    
+   
         @include('layouts.backend.partial.topbar')
   
- 
-
-
     <!-- #Top Bar -->
     <section>
         <!-- Left Sidebar -->
@@ -150,6 +147,8 @@
 
     <!-- Demo Js -->
     <script src="{{ asset('assets/backend/js/demo.js')}}"></script>
+
+
 @stack('js')
 
 </body>
