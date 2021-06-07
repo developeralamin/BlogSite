@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-// use Brian2694\Toastr\Facades\Toastr;
+use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Tag;
 
 class TagController extends Controller
@@ -46,7 +46,7 @@ class TagController extends Controller
         $tag->name = $request->name;
         $tag->slug = Str::slug($request->name);
         $tag->save();
-         // Toastr::success('Tag Successfully Saved :)' ,'Success');
+        Toastr::success('Tag Successfully Saved :)' ,'Success');
         return redirect()->route('admin.tags.index');
     }
 
@@ -69,7 +69,7 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        $this->data['tags'] = Tag::find($id);
+        $this->data['tags'] = Tag::findOrFail($id);
         return view('admin.tag.edit',$this->data);
     }
 
@@ -82,7 +82,12 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $tag        = Tag::find($id);
+        $tag->name   = $request->name;
+        $tag->slug   = Str::slug($request->name);
+        $tag->save();
+        Toastr::success('Tag Successfully Updated :)','Success');
+        return redirect()->route('admin.tags.index');
     }
 
     /**
@@ -93,6 +98,8 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        
+        Tag::find($id)->delete();
+        Toastr::success('Tag Successfully Deleted :)','Success');
+        return redirect()->back();
     }
 }

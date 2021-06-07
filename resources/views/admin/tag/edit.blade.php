@@ -19,8 +19,10 @@
                     </div>
                     
                     <div class="body">
-                        <form action="{{ route('admin.tags.store') }}" method="POST">
+                     <form action="{{ route('admin.tags.update',$tags->id) }}" method="POST">
                             @csrf
+                            @method('PUT')
+                            
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" id="name" class="form-control" name="name" value="{{ $tags->name }}">

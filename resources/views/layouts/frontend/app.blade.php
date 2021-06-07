@@ -29,7 +29,7 @@
     <link href="{{ asset('assets/fontend/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/fontend/css/swiper.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/fontend/css/ionicons.css') }}" rel="stylesheet">
-
+ <link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
      @stack('css')
 </head>
 <body>
@@ -55,6 +55,9 @@
     <script src="{{ asset('assets/fontend/js/swiper.js') }}"></script>
     <script src="{{ asset('assets/fontend/js/scripts.js') }}"></script>
 
+ <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+        {!! Toastr::message() !!}
+        
 @stack('js')
 
 </body>

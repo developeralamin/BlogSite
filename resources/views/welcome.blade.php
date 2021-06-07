@@ -23,7 +23,7 @@
 
                 <div class="swiper-slide">
                     <a class="slider-category" href="#">
-                        <div class="blog-image"><img src="images/category-1-400x250.jpg" alt="Blog Image"></div>
+                        <div class="blog-image"><img src="{{ asset('assets/fontend/images/category-1-400x250.jpg') }} " alt="Blog Image"></div>
 
                         <div class="category">
                             <div class="display-table center-text">
@@ -38,7 +38,7 @@
 
                 <div class="swiper-slide">
                     <a class="slider-category" href="#">
-                        <div class="blog-image"><img src="images/category-2-400x250.jpg" alt="Blog Image"></div>
+                        <div class="blog-image"><img src="{{ asset('assets/fontend/images/category-1-400x250.jpg') }} " alt="Blog Image"></div>
 
                         <div class="category">
                             <div class="display-table center-text">
@@ -53,7 +53,7 @@
 
                 <div class="swiper-slide">
                     <a class="slider-category" href="#">
-                        <div class="blog-image"><img src="images/category-3-400x250.jpg" alt="Blog Image"></div>
+                        <div class="blog-image"><img src="{{ asset('assets/fontend/images/category-1-400x250.jpg') }} " alt="Blog Image"></div>
 
                         <div class="category">
                             <div class="display-table center-text">
@@ -68,7 +68,7 @@
 
                 <div class="swiper-slide">
                     <a class="slider-category" href="#">
-                        <div class="blog-image"><img src="images/category-4-400x250.jpg" alt="Blog Image"></div>
+                        <div class="blog-image"><img src="{{ asset('assets/fontend/images/category-1-400x250.jpg') }} " alt="Blog Image"></div>
 
                         <div class="category">
                             <div class="display-table center-text">
@@ -83,7 +83,7 @@
 
                 <div class="swiper-slide">
                     <a class="slider-category" href="#">
-                        <div class="blog-image"><img src="images/category-5-400x250.jpg" alt="Blog Image"></div>
+                        <div class="blog-image"><img src="{{ asset('assets/fontend/images/category-1-400x250.jpg') }} " alt="Blog Image"></div>
 
                         <div class="category">
                             <div class="display-table center-text">
@@ -98,7 +98,7 @@
 
                 <div class="swiper-slide">
                     <a class="slider-category" href="#">
-                        <div class="blog-image"><img src="images/category-6-400x250.jpg" alt="Blog Image"></div>
+                        <div class="blog-image"><img src="{{ asset('assets/fontend/images/category-1-400x250.jpg') }} " alt="Blog Image"></div>
 
                         <div class="category">
                             <div class="display-table center-text">
@@ -126,9 +126,9 @@
                     <div class="card h-100">
                         <div class="single-post post-style-1">
 
-                            <div class="blog-image"><img src="images/marion-michele-330691.jpg" alt="Blog Image"></div>
+                            <div class="blog-image"><img src="{{asset('assets/fontend/images/marion-michele-330691.jpg')}} " alt="Blog Image"></div>
 
-                            <a class="avatar" href="#"><img src="images/icons8-team-355979.jpg" alt="Profile Image"></a>
+                            <a class="avatar" href="#"><img src="{{asset('assets/fontend/images/icons8-team-355979.jpg')}} " alt="Profile Image"></a>
 
                             <div class="blog-info">
 
