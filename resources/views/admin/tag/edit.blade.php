@@ -14,7 +14,7 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                           ADD NEW TAG
+                           UPDATE TAG
                         </h2>
                     </div>
                     

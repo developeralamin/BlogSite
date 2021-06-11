@@ -50,6 +50,7 @@
                                 
                                 <th>SL.</th>
                                 <th>Name</th>
+                                <th>Post Count</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
                                 <th>Actions</th>
@@ -60,6 +61,7 @@
                             <tr>
                                 <th>SL.</th>
                                 <th>Name</th>
+                                 <th>Post Count</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
                                 <th>Actions</th>
@@ -72,6 +74,7 @@
         <tr>
             <td>{{ $key+1 }}</td>
             <td>{{ $category->name }}</td>
+            <td></td>
             <td>{{ $category->created_at }}</td>
             <td>{{ $category->updated_at }}</td>
             

@@ -18,9 +18,8 @@
                         </h2>
                     </div>
                     
-                    <div class="body">
-                        <form action="{{ route('admin.category.store') }}" method="POST"enctype="multipart/from-data">
-
+ <div class="body">
+                        <form action="{{ route('admin.category.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group form-float">
                                 <div class="form-line">
@@ -29,11 +28,8 @@
                                 </div>
                             </div>
 
-                             <div class="form-group form-float">
-                                
-                            <input type="file" id="image" class="form-control" name="image">
-                                    
-               
+                            <div class="form-group">
+                                <input type="file" name="image">
                             </div>
 
                             <a  class="btn btn-danger m-t-15 waves-effect" href="{{ route('admin.category.index') }}">BACK</a>
