@@ -50,7 +50,7 @@
                                 
                                 <th>SL.</th>
                                 <th>Name</th>
-                                {{-- <th>Slug</th> --}}
+                                <th>Posts Count</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
                                 <th>Actions</th>
@@ -61,7 +61,7 @@
                             <tr>
                                 <th>SL.</th>
                                 <th>Name</th>
-                                {{-- <th>Slug</th> --}}
+                                 <th>Posts Count</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
                                 <th>Actions</th>
@@ -74,7 +74,7 @@
         <tr>
             <td>{{ $key+1 }}</td>
             <td>{{ $tag->name }}</td>
-            {{-- <td>{{ $tag->slug }}</td> --}}
+            <td>{{ $tag->posts->count() }}</td>
             <td>{{ $tag->created_at }}</td>
             <td>{{ $tag->updated_at }}</td>
             

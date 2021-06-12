@@ -46,37 +46,44 @@
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                         <thead>
-                            <tr>
-                                
-                                <th>SL.</th>
-                                <th>Name</th>
-                                <th>Post Count</th>
-                                <th>Created At</th>
-                                <th>Updated At</th>
-                                <th>Actions</th>
-                            
-                            </tr>
+                                   <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th><i class="material-icons">visibility</i></th>
+                                    <th>Is Approved</th>
+                                    <th>Status</th>
+                                    <th>Created At</th>
+                                   
+                                    <th>Action</th>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>SL.</th>
-                                <th>Name</th>
-                                 <th>Post Count</th>
-                                <th>Created At</th>
-                                <th>Updated At</th>
-                                <th>Actions</th>
-                            </tr>
-                        </tfoot>
 
    @foreach($posts as $key=>$post)
 
      <tbody>
         <tr>
             <td>{{ $key+1 }}</td>
-            <td>{{ $post->title }}</td>
+            <td>{{ Str::limit($post->title,'15') }}</td>
             <td>{{ $post->user->name }}</td>
+            <td>{{ $post->view_count }}</td>
+            <td>
+                @if($post->is_approved == true)
+                    <span class="badge bg-blue">Approved</span>
+                @else
+                <span class="badge bg-pink">Pending</span>
+
+                @endif
+         </td>
+          <td>
+                @if($post->status == true)
+                    <span class="badge bg-blue">Published</span>
+                @else
+                    <span class="badge bg-pink">Pending</span>
+
+                @endif
+
+            </td>
             <td>{{ $post->created_at }}</td>
-            <td>{{ $post->updated_at }}</td>
+            {{-- <td>{{ $post->updated_at }}</td> --}}
             
      <td class="text-center">
         <a href="{{ route('admin.post.edit',$post->id) }}" class="btn btn-info waves-effect">

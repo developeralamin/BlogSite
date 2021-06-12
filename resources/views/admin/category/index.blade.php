@@ -74,7 +74,7 @@
         <tr>
             <td>{{ $key+1 }}</td>
             <td>{{ $category->name }}</td>
-            <td></td>
+            <td>{{$category->posts->count()}}</td>
             <td>{{ $category->created_at }}</td>
             <td>{{ $category->updated_at }}</td>
             
