@@ -86,7 +86,25 @@
             {{-- <td>{{ $post->updated_at }}</td> --}}
             
      <td class="text-center">
-        
+         @if($post->is_approved == false)
+           <button type="button" class="btn btn-success waves-effect pull-right"
+           onclick="approvedPost({{ $post->id }})">
+                <i class="material-icons">done</i>
+                <span>Approved</span>
+           </button>
+           <form method="POST" action="{{ route('admin.approval.post',$post->id) }}" style="display: none" id="approvalid">
+               @csrf
+               @method('PUT')
+           </form>
+
+
+        @else
+         <button type="button" class="btn btn-success pull-right" disabled>
+                <i class="material-icons">done</i>
+                 <span>Approved</span>
+           </button>
+
+        @endif
         <a href="{{ route('admin.post.edit',$post->id) }}" class="btn btn-info waves-effect">
             <i class="material-icons">edit</i>
         </a>
@@ -167,6 +185,37 @@
                         'Cancelled',
                         'Your data is safe :)',
                         'error'
+                    )
+                }
+            })
+        }
+
+         function approvedPost(id) {
+        swal({
+                title: 'Are you sure?',
+                text: "You want ot Approved this post",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Approved it!',
+                cancelButtonText: 'No, cancel!',
+                confirmButtonClass: 'btn btn-success',
+                cancelButtonClass: 'btn btn-danger',
+                buttonsStyling: false,
+                reverseButtons: true
+            }).then((result) => {
+                if (result.value) {
+                    event.preventDefault();
+                    document.getElementById('approvalid').submit();
+                } else if (
+                    // Read more about handling dismissals
+                    result.dismiss === swal.DismissReason.cancel
+                ) {
+                    swal(
+                        'Cancelled',
+                        'Your Post is approved :)',
+                        'info'
                     )
                 }
             })

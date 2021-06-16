@@ -29,6 +29,10 @@ Route::resource('tags', App\Http\Controllers\Admin\TagController::class);
 Route::resource('category', App\Http\Controllers\Admin\CategoryController::class);
 Route::resource('post', App\Http\Controllers\Admin\PostController::class);
 
+Route::get('/pending/post',[App\Http\Controllers\Admin\PostController::class,'pending'])->name('post.pending');
+
+Route::put('/post/{id}/approval',[App\Http\Controllers\Admin\PostController::class,'approval'])->name('approval.post');
+
 });
 
 

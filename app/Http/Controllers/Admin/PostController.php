@@ -34,9 +34,9 @@ class PostController extends Controller
      */
     public function create()
     {
-         $categories = Category::all();
-        $tags = Tag::all();
-        return view('admin.post.create',compact('categories','tags'));
+       $categories = Category::all();
+        $tags          = Tag::all();
+        return view('author.post.create',compact('categories','tags'));
     }
 
     /**
@@ -110,7 +110,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-       
+    
         return view('admin.post.show',compact('post'));
     }
 
@@ -203,6 +203,27 @@ class PostController extends Controller
         return redirect()->route('admin.post.index');
     }
 
+
+   public function pending()
+    {
+        $posts = Post::where('is_approved',false)->get();
+        return view('admin.post.pending',compact('posts'));
+    }
+     
+     public function approval($id)
+     {
+        $post = Post::find($id);
+
+        if($post->is_approved == false){
+            $post->is_approved = true;
+            $post->save();
+            Toastr::success('Post Approval Successfully done :)' ,'Success');
+        }else{
+            Toastr::success('Post Approval Already exists :)' ,'Danger');
+        }
+        return redirect()->back();
+     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -218,6 +239,8 @@ class PostController extends Controller
             Storage::disk('public')->delete('post/'.$post->image);
             
           }
+        $post->categories()->detach();
+        $post->tags()->detach();
         $post->delete();
         Toastr::success('Post Successfully Deleted :)','Success');
         return redirect()->back();

@@ -10,7 +10,7 @@
 @section('content')
     <div class="container-fluid">
         <!-- Vertical Layout | With Floating Label -->
-        <a href="{{ route('admin.post.index') }}" class="btn btn-danger waves-effect">BACK</a>
+        <a href="{{ route('author.post.index') }}" class="btn btn-danger waves-effect">BACK</a>
 
         @if($post->is_approved == false)
            <button type="button" class="btn btn-success pull-right">
@@ -27,13 +27,15 @@
 
     </br>
     </br>
-        <form action="{{ route('admin.post.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('author.post.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row clearfix">
                 <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            {{ $post->title }}
+                           <h2>{{ $post->title }}</h2> 
+                            <br>
+                            <br>
                             <small>Posted By <strong> <a href="">{{ $post->user->name }}</a> on {{ $post->created_at->toFormattedDateString() }} </strong> </small>
                         </div>
                         <div class="body">
