@@ -89,12 +89,12 @@
                         </a>
              </li>
 
-          {{--  <li class="{{ Request::is('author/dashboard') ? 'active' : '' }}">
-                        <a href="{{ route('author.dashboard') }}">
-                            <i class="material-icons">dashboard</i>
-                            <span>Dashboard</span>
+           <li class="{{ Request::is('author/post') ? 'active' : '' }}">
+                        <a href="{{ route('author.post.index') }}">
+                            <i class="material-icons">library_books</i>
+                            <span>Post</span>
                         </a>
-             </li> --}}
+             </li>
                       
 
              <li class="header">System</li>

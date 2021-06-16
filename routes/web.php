@@ -37,4 +37,6 @@ Route::group(['as' =>'author.','prefix'=>'author','middleware' =>['auth','author
 
 Route::get('dashboard', [App\Http\Controllers\Author\DashboardController::class,'index'])->name('dashboard');
 
+Route::resource('post',App\Http\Controllers\Author\PostController::class);
+
 });
