@@ -68,7 +68,15 @@
                         <span>Pending Posts</span>
                     </a>
                 </li>
-                      
+
+             <li class="{{ Request::is('admin/subscriber') ? 'active' : '' }}">
+                    <a href="{{ route('admin.suscriber.show') }}">
+                        <i class="material-icons">subscriptions</i>
+                        <span>Subscribers</span>
+                    </a>
+             </li>
+                 
+                 {{-- suscriber.show      --}}
                       
 
              <li class="header">System</li>

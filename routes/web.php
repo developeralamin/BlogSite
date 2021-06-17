@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('suscribe', [App\Http\Controllers\SuscriberController::class, 'store'])->name('suscribe.store');
 
 ///Admin All Routes are here
 Route::group(['as' =>'admin.','prefix'=>'admin','middleware' =>['auth','admin']],function(){
@@ -32,6 +32,10 @@ Route::resource('post', App\Http\Controllers\Admin\PostController::class);
 Route::get('/pending/post',[App\Http\Controllers\Admin\PostController::class,'pending'])->name('post.pending');
 
 Route::put('/post/{id}/approval',[App\Http\Controllers\Admin\PostController::class,'approval'])->name('approval.post');
+
+Route::get('/suscriber',[App\Http\Controllers\Admin\SuscriberController::class,'index'])->name('suscriber.show');
+
+Route::delete('/suscriber/{id}',[App\Http\Controllers\Admin\SuscriberController::class,'destroy'])->name('suscribeber.destroy');
 
 });
 

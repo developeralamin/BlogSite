@@ -54,7 +54,8 @@
                                     <label for="category">Select Category</label>
                                     <select name="categories[]" id="category" class="form-control show-tick" data-live-search="true" multiple>
                                         @foreach($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            <option value="{{ $category->id }}">{{ 
+                                                $category->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

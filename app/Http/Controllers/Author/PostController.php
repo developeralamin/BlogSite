@@ -23,6 +23,10 @@ class PostController extends Controller
      */
     public function index()
     {
+         if($post->user_id != Auth::id()){
+        Toastr::error('You are not authorized in this post :)' ,'Error');
+        return redirect()->back();
+       }
         $this->data['posts'] = Auth::User()->posts()->latest()->get();
         return view('author.post.index',$this->data);
     }
@@ -34,6 +38,10 @@ class PostController extends Controller
      */
     public function create()
     {
+         if($post->user_id != Auth::id()){
+        Toastr::error('You are not authorized in this post :)' ,'Error');
+        return redirect()->back();
+       }
            $categories = Category::all();
         $tags          = Tag::all();
         return view('author.post.create',compact('categories','tags'));
@@ -47,6 +55,10 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+         if($post->user_id != Auth::id()){
+        Toastr::error('You are not authorized in this post :)' ,'Error');
+        return redirect()->back();
+       }
          $this->validate($request,[
             'title'       => 'required',
             'image'       => 'required|mimes:jpeg,bmp,png,jpg',
@@ -110,7 +122,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         if($post->user_id != Auth::id()){
-        Toastr::success('You are not authorized in this post :)' ,'Error');
+        Toastr::error('You are not authorized in this post :)' ,'Error');
         return redirect()->back();
        }
       return view('author.post.show',compact('post'));
@@ -125,7 +137,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         if($post->user_id != Auth::id()){
-        Toastr::success('You are not authorized in this post :)' ,'Error');
+        Toastr::error('You are not authorized in this post :)' ,'Error');
         return redirect()->back();
        }
          $categories  = Category::all();
@@ -145,7 +157,7 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         if($post->user_id != Auth::id()){
-        Toastr::success('You are not authorized in this post :)' ,'Error');
+        Toastr::error('You are not authorized in this post :)' ,'Error');
         return redirect()->back();
        }
           $this->validate($request,[
@@ -218,7 +230,7 @@ class PostController extends Controller
     {
        // $post = Post::find($post);
 if($post->user_id != Auth::id()){
-        Toastr::success('You are not authorized in this post :)' ,'Errors');
+        Toastr::error('You are not authorized in this post :)' ,'Errors');
         return redirect()->back();
        }
     if(Storage::disk('public')->exists('post/'.$post->image))

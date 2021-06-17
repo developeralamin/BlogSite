@@ -99,7 +99,7 @@ class PostController extends Controller
         $post->tags()->attach($request->tags);
 
         Toastr::success('Post Successfully Saved :)' ,'Success');
-        return redirect()->route('admin.post.index');
+        // return redirect()->route('admin.post.index');
     }
 
     /**
