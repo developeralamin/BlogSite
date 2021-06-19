@@ -13,9 +13,9 @@
         <a href="{{ route('author.post.index') }}" class="btn btn-danger waves-effect">BACK</a>
 
         @if($post->is_approved == false)
-           <button type="button" class="btn btn-success pull-right">
+           <button type="button" class="btn btn-danger pull-right">
                 <i class="material-icons">done</i>
-                <span>Approved</span>
+                <span>Pending</span>
            </button>
         @else
          <button type="button" class="btn btn-success pull-right" disabled>

@@ -16,6 +16,7 @@ class SuscriberController extends Controller
     	return view('admin.suscribe.index',$this->data);
     }
 
+
     public function destroy ($id)
     {
     	$suscriber = Suscriber::findOrFail($id);

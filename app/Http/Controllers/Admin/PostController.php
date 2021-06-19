@@ -13,6 +13,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
+use App\Notifications\AuthorPostApproval;
+use Illuminate\Support\Facades\Notification;
 
 class PostController extends Controller
 {
@@ -217,6 +219,8 @@ class PostController extends Controller
         if($post->is_approved == false){
             $post->is_approved = true;
             $post->save();
+      
+            $post->user->notify(new AuthorPostApproval($post));
             Toastr::success('Post Approval Successfully done :)' ,'Success');
         }else{
             Toastr::success('Post Approval Already exists :)' ,'Danger');
