@@ -41,6 +41,8 @@
                     <div class="card">
                         <div class="header">
                             {{ $post->title }}
+                            <br>
+                            <br>
                             <small>Posted By <strong> <a href="">{{ $post->user->name }}</a> on {{ $post->created_at->toFormattedDateString() }} </strong> </small>
                         </div>
                         <div class="body">
