@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class NewAuthorPost extends Notification
+class NewAuthorPost extends Notification 
 {
     use Queueable;
 
