@@ -22,6 +22,14 @@ Route::post('suscribe', [App\Http\Controllers\SuscriberController::class, 'store
 ///Admin All Routes are here
 Route::group(['as' =>'admin.','prefix'=>'admin','middleware' =>['auth','admin']],function(){
 
+Route::get('setting', [App\Http\Controllers\Admin\SettingController::class,'index'])->name('setting');
+
+Route::put('profile-update', [App\Http\Controllers\Admin\SettingController::class,'updateProfile'])->name('profile.update');
+
+Route::put('password-update', [App\Http\Controllers\Admin\SettingController::class,'updatePassword'])->name('password.update');
+
+
+
 Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class,'index'])->name('dashboard');
 Route::resource('tags', App\Http\Controllers\Admin\TagController::class);
 Route::resource('category', App\Http\Controllers\Admin\CategoryController::class);
@@ -42,6 +50,11 @@ Route::delete('/suscriber/{id}',[App\Http\Controllers\Admin\SuscriberController:
 Route::group(['as' =>'author.','prefix'=>'author','middleware' =>['auth','author']],function(){
 
 Route::get('dashboard', [App\Http\Controllers\Author\DashboardController::class,'index'])->name('dashboard');
+Route::get('setting', [App\Http\Controllers\Author\SettingController::class,'index'])->name('setting');
+
+Route::put('profile-update', [App\Http\Controllers\Author\SettingController::class,'updateProfile'])->name('profile.update');
+
+Route::put('password-update', [App\Http\Controllers\Author\SettingController::class,'updatePassword'])->name('password.update');
 
 Route::resource('post',App\Http\Controllers\Author\PostController::class);
 
