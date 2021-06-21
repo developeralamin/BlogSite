@@ -17,6 +17,14 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Auth::routes();
 
+/// All Routes are here
+ 
+Route::group(['middleware'=>['auth']], function (){
+
+  Route::post('favorite/{post}/add',[App\Http\Controllers\FavoriteController::class, 'store'])->name('post.favorite');
+   // Route::post('comment/{post}','CommentController@store')->name('comment.store');
+});
+
 Route::post('suscribe', [App\Http\Controllers\SuscriberController::class, 'store'])->name('suscribe.store');
 
 ///Admin All Routes are here

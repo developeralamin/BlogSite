@@ -78,12 +78,19 @@
                     </a>
                 </li>
 
-             <li class="{{ Request::is('admin/subscriber') ? 'active' : '' }}">
+             <li class="{{ Request::is('admin/suscriber') ? 'active' : '' }}">
                     <a href="{{ route('admin.suscriber.show') }}">
                         <i class="material-icons">subscriptions</i>
                         <span>Subscribers</span>
                     </a>
              </li>
+
+            {{--  <li class="{{ Request::is('admin/subscriber') ? 'active' : '' }}">
+                    <a href="{{ route('admin.suscriber.index') }}">
+                        <i class="material-icons">subscriptions</i>
+                        <span>Subscribers</span>
+                    </a>
+                </li> --}}
                  
                  {{-- suscriber.show      --}}  
 
