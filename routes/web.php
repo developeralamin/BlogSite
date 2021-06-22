@@ -17,6 +17,8 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Auth::routes();
 
+// Route::get('posts','PostController@index')->name('post.index');
+Route::get('post/{slug}',[App\Http\Controllers\PostController::class, 'index'])->name('post.details');
 /// All Routes are here
  
 Route::group(['middleware'=>['auth']], function (){
@@ -51,6 +53,10 @@ Route::get('/suscriber',[App\Http\Controllers\Admin\SuscriberController::class,'
 
 Route::delete('/suscriber/{id}',[App\Http\Controllers\Admin\SuscriberController::class,'destroy'])->name('suscribeber.destroy');
 
+
+Route::get('/favorite',[App\Http\Controllers\Admin\FavoriteController::class,'index'])->name('favorite.index');
+
+
 });
 
 
@@ -65,5 +71,8 @@ Route::put('profile-update', [App\Http\Controllers\Author\SettingController::cla
 Route::put('password-update', [App\Http\Controllers\Author\SettingController::class,'updatePassword'])->name('password.update');
 
 Route::resource('post',App\Http\Controllers\Author\PostController::class);
+
+
+Route::get('/favorite',[App\Http\Controllers\Author\FavoriteController::class,'index'])->name('favorite.index');
 
 });

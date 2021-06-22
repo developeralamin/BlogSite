@@ -67,24 +67,27 @@
 
                             <div class="blog-info">
 
-                                <h4 class="title"><a href="#"><b>{{ $post->title }}</b></a></h4>
+                                <h4 class="title"><a href="{{ route('post.details',$post->slug) }}"><b>{{ $post->title }}</b></a></h4>
 
         <ul class="post-footer">
             <li>
+
                @guest
-        <a href="javascript:void(0);" onclick="toastr.info('To add favorite list. You need to login first.','Info',{
-            closeButton: true,
-            progressBar: true,
-        })"><i class="ion-heart"></i>{{ $post->favorite_to_users->count() }}</a>
-    @else
-        <a href="javascript:void(0);" onclick="document.getElementById('favorite-form-{{ $post->id }}').submit();"
-           class="{{ !Auth::user()->favorite_posts->where('pivot.post_id',$post->id)->count()  == 0 ? 'favorite_posts' : ''}}"><i class="ion-heart"></i>{{ $post->favorite_to_users->count() }}</a>
 
-        <form id="favorite-form-{{ $post->id }}" method="POST" action="{{ route('post.favorite',$post->id) }}" style="display: none;">
-            @csrf
-        </form>
-    @endguest
+    <a href="javascript:void(0);" onclick="toastr.info('To add favorite list. You need to login first.','Info',{
+        closeButton: true,
+        progressBar: true,
+    })"><i class="ion-heart"></i>{{ $post->favorite_to_users->count() }}</a>
+@else
+    <a href="javascript:void(0);" onclick="document.getElementById('favorite-form-{{ $post->id }}').submit();"
+       class="{{ !Auth::user()->favorite_posts->where('pivot.post_id',$post->id)->count()  == 0 ? 'favorite_posts' : ''}}"><i class="ion-heart"></i>
+       {{ $post->favorite_to_users->count() }}</a>
 
+    <form id="favorite-form-{{ $post->id }}" method="POST" action="{{ route('post.favorite',$post->id) }}" style="display: none;">
+        @csrf
+
+    </form>
+@endguest
                 
             </li>
 
