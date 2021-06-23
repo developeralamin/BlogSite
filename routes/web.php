@@ -17,8 +17,10 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Auth::routes();
 
-// Route::get('posts','PostController@index')->name('post.index');
+Route::get('posts',[App\Http\Controllers\PostController::class, 'all_post'])->name('post.index');
+
 Route::get('post/{slug}',[App\Http\Controllers\PostController::class, 'index'])->name('post.details');
+
 /// All Routes are here
  
 Route::group(['middleware'=>['auth']], function (){

@@ -45,9 +45,9 @@
 
                             <div class="post-info">
 
-                                <div class="left-area">
-                                    <a class="avatar" href="#"><img src="{{ Storage::disk('public')->url('profile/'.Auth::user()->image) }}" alt="Profile Image"></a>
-                                </div>
+            <div class="left-area">
+                <a class="avatar" href="#"><img src="{{ Storage::disk('public')->url('profile/'.$post->user->image) }}" alt="Profile Image"></a>
+            </div>
 
                                 <div class="middle-area">
                                     <a class="name" href="#"><b>{{ $post->user->name }}</b></a>
@@ -64,7 +64,7 @@
                             <ul class="tags">
                                 
                                     
-                                      @foreach($post->tags as $taf)
+                              @foreach($post->tags as $taf)
                                 <li><a href="#">{{ $taf->name }}</a></li>
                                @endforeach
                                 

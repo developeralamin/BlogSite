@@ -63,6 +63,8 @@
 
                             <div class="blog-image"><img src="{{ Storage::disk('public')->url('post/'.$post->image) }} " alt="Blog Image"></div>
 
+             {{--     <a class="avatar" href="{{ route('author.profile.update',$post->user->username) }}"><img src="{{ Storage::disk('public')->url('profile/'.$post->user->image) }}" alt="Profile Image"></a> --}}
+                 
                     <a class="avatar" href="#"><img src="{{ Storage::disk('public')->url('profile/'.$post->user->image) }}" width="48" height="48" alt="User" /></a>
 
                             <div class="blog-info">
@@ -104,7 +106,7 @@
                
             </div><!-- row -->
 
-            <a class="load-more-btn" href="#"><b>LOAD MORE</b></a>
+            {{-- <a class="load-more-btn" href="#"><b>LOAD MORE</b></a> --}}
 
         </div><!-- container -->
     </section><!-- section -->
