@@ -27,4 +27,8 @@ class Post extends Model
         return $this->belongsToMany('App\Models\User')->withTimestamps();
     }
     
+      public function comments()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
 }

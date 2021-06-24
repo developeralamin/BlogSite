@@ -26,8 +26,11 @@ Route::get('post/{slug}',[App\Http\Controllers\PostController::class, 'index'])-
 Route::group(['middleware'=>['auth']], function (){
 
   Route::post('favorite/{post}/add',[App\Http\Controllers\FavoriteController::class, 'store'])->name('post.favorite');
-   // Route::post('comment/{post}','CommentController@store')->name('comment.store');
+
+  Route::post('comment/{post}',[App\Http\Controllers\CommentController::class,'store'])->name('comment.store');
 });
+
+
 
 Route::post('suscribe', [App\Http\Controllers\SuscriberController::class, 'store'])->name('suscribe.store');
 
