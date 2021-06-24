@@ -54,12 +54,18 @@ Route::get('/pending/post',[App\Http\Controllers\Admin\PostController::class,'pe
 
 Route::put('/post/{id}/approval',[App\Http\Controllers\Admin\PostController::class,'approval'])->name('approval.post');
 
+
 Route::get('/suscriber',[App\Http\Controllers\Admin\SuscriberController::class,'index'])->name('suscriber.show');
 
 Route::delete('/suscriber/{id}',[App\Http\Controllers\Admin\SuscriberController::class,'destroy'])->name('suscribeber.destroy');
 
 
 Route::get('/favorite',[App\Http\Controllers\Admin\FavoriteController::class,'index'])->name('favorite.index');
+
+//show comment in admin
+Route::get('comment',[App\Http\Controllers\Admin\CommentController::class,'index'])->name('comment.index');
+
+Route::delete('comment/{id}',[App\Http\Controllers\Admin\CommentController::class,'destroy'])->name('comment.destroy');
 
 
 });
@@ -79,5 +85,11 @@ Route::resource('post',App\Http\Controllers\Author\PostController::class);
 
 
 Route::get('/favorite',[App\Http\Controllers\Author\FavoriteController::class,'index'])->name('favorite.index');
+
+
+//show comment in admin
+Route::get('comment',[App\Http\Controllers\Author\CommentController::class,'index'])->name('comment.index');
+
+Route::delete('comment/{id}',[App\Http\Controllers\Author\CommentController::class,'destroy'])->name('comment.destroy');
 
 });

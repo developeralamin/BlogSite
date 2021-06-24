@@ -28,7 +28,7 @@
 
     <div class="slider">
         <div class="display-table  center-text">
-            <h1 class="title display-table-cell" style="color:black;"><b>{{ $post->title }}</b></h1>
+            <h1 class="title display-table-cell text-danger"><b>{{ $post->title }}</b></h1>
         </div>
     </div><!-- slider -->
 
@@ -232,7 +232,7 @@
 
                     <div class="commnets-area">
                         <div class="comment">
-                            <div class="post-info">
+                <div class="post-info">
                     <div class="left-area">
                   <a class="avatar" href="#"><img src="{{ Storage::disk('public')->url('profile/'.$comment->user->image) }}"></a>
                     </div>

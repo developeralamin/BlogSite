@@ -6,16 +6,19 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-section">
 
-                        <a class="logo" href="#">Blog</a>
-                        <p class="copyright">Bona @ 2017. All rights reserved.</p>
-                        <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a>.Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a></p>
-                        <ul class="icons">
-                            <li><a href="#"><i class="ion-social-facebook-outline"></i></a></li>
-                            <li><a href="#"><i class="ion-social-twitter-outline"></i></a></li>
-                            <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
-                            <li><a href="#"><i class="ion-social-vimeo-outline"></i></a></li>
-                            <li><a href="#"><i class="ion-social-pinterest-outline"></i></a></li>
-                        </ul>
+                        {{--<a class="logo" href="#"><img src="images/logo.png" alt="Logo Image"></a>--}}
+                    <p class="copyright">{{ env('APP_NAME') }} @ {{ date('Y') }}. All rights reserved.</p>
+                    <p class="copyright"><strong> Developed &amp; <i class="far fa-heart"></i> by </strong>
+                        <a href="https://developeralamin.github.io/simple_website/alamin_me.html" target="_blank">Developer Alamin</a></p>
+                    <ul class="icons">
+                        <li><a target="_blank" href="https://www.facebook.com/tpialamin/"><i class="ion-social-facebook-outline"></i></a></li>
+
+                        <li><a target="_blank" href="#"><i class="ion-social-twitter-outline"></i></a></li>
+
+                        <li><a target="_blank" href="#"><i class="ion-social-instagram-outline"></i></a></li>
+
+                        <li><a target="_blank" href="#"><i class="ion-social-youtube-outline"></i></a></li>
+                    </ul>
 
                     </div><!-- footer-section -->
                 </div><!-- col-lg-4 col-md-6 -->
