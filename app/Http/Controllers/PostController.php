@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Support\Facades\Session;
 
 
@@ -30,4 +32,21 @@ class PostController extends Controller
 
     	return view('single_post',compact('post','randomposts'));
     }
+
+   public function postByCategory($slug)
+   {
+       $category =Category::where('slug',$slug)->first();
+
+       return view('category',compact('category'));
+
+   }
+
+  public function postBytags($slug)
+  {
+       $tags =Tag::where('slug',$slug)->first();
+
+       return view('tags',compact('tags'));
+  }
+
+
 }

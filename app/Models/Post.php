@@ -17,10 +17,12 @@ class Post extends Model
     {
         return $this->belongsToMany('App\Models\Category')->withTimestamps();
     }
+
     public function tags()
     {
         return $this->belongsToMany('App\Models\Tag')->withTimestamps();
     }
+
 
     public function favorite_to_users()
     {

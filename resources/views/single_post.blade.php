@@ -65,7 +65,7 @@
                                 
                                     
                               @foreach($post->tags as $taf)
-                                <li><a href="#">{{ $taf->name }}</a></li>
+                                <li><a href="{{ route('tags.posts',$taf->slug) }}">{{ $taf->name }}</a></li>
                                @endforeach
                                 
                                
@@ -126,7 +126,7 @@
                             <h4 class="title"><b>CATEGORIES</b></h4>
                             <ul>
                                 @foreach($post->categories as $category)
-                                <li><a href="#">{{ $category->name }}</a></li>
+         <li><a href="{{ route('category.posts',$category->slug) }}">{{ $category->name }}</a></li>
                                @endforeach
                             </ul>
 

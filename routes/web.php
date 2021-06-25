@@ -21,6 +21,9 @@ Route::get('posts',[App\Http\Controllers\PostController::class, 'all_post'])->na
 
 Route::get('post/{slug}',[App\Http\Controllers\PostController::class, 'index'])->name('post.details');
 
+Route::get('/category/{slug}',[App\Http\Controllers\PostController::class, 'postByCategory'])->name('category.posts');
+
+Route::get('/tags/{slug}',[App\Http\Controllers\PostController::class, 'postBytags'])->name('tags.posts');
 /// All Routes are here
  
 Route::group(['middleware'=>['auth']], function (){
@@ -92,4 +95,9 @@ Route::get('comment',[App\Http\Controllers\Author\CommentController::class,'inde
 
 Route::delete('comment/{id}',[App\Http\Controllers\Author\CommentController::class,'destroy'])->name('comment.destroy');
 
+});
+
+View::composer('layouts.frontend.partial.footer',function ($view) {
+    $categories = App\Models\Category::all();
+    $view->with('categories',$categories);
 });
