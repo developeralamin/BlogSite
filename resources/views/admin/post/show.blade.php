@@ -40,7 +40,7 @@
                 <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            {{ $post->title }}
+                          <h1> {{ $post->title }}</h1> 
                             <br>
                             <br>
                             <small>Posted By <strong> <a href="">{{ $post->user->name }}</a> on {{ $post->created_at->toFormattedDateString() }} </strong> </small>

@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         $this->data['categories'] = Category::all();
-        $this->data['posts'] = Post::all();
+        $this->data['posts'] = Post::latest()->approved()->published()->get();
         return view('welcome',$this->data);
     }
 }

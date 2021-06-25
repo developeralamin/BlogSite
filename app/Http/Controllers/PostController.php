@@ -14,7 +14,7 @@ class PostController extends Controller
 
 	public function all_post()
 	{
-		$posts=Post::latest()->paginate(6);
+	  $posts=Post::latest()->approved()->published()->paginate(6);
 		return view('posts',compact('posts'));
 	}
 
@@ -28,24 +28,26 @@ class PostController extends Controller
     		Session::put($blogkey,1);
     	}
 
-    	$randomposts= Post::all()->random(3);
+  $randomposts= Post::approved()->published()->take(3)->inRandomOrder()->get();
 
     	return view('single_post',compact('post','randomposts'));
     }
 
+
+
    public function postByCategory($slug)
    {
        $category =Category::where('slug',$slug)->first();
-
-       return view('category',compact('category'));
+       $posts = $category->posts()->approved()->published()->get();
+       return view('category',compact('category','posts'));
 
    }
 
   public function postBytags($slug)
   {
        $tags =Tag::where('slug',$slug)->first();
-
-       return view('tags',compact('tags'));
+       $posts = $tags->posts()->approved()->published()->get();
+       return view('tags',compact('tags','posts'));
   }
 
 

@@ -25,7 +25,7 @@
        
      @if($tags->posts->count() > 0)
                 
-         @foreach($tags->posts as $post)
+         @foreach($posts as $post)
 
 
         <div class="col-lg-4 col-md-6">

@@ -30,8 +30,7 @@
        
      @if($category->posts->count() > 0)
                 
-         @foreach($category->posts as $post)
-
+         @foreach($posts as $post)
 
         <div class="col-lg-4 col-md-6">
             <div class="card h-100">
