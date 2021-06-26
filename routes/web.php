@@ -24,6 +24,9 @@ Route::get('post/{slug}',[App\Http\Controllers\PostController::class, 'index'])-
 Route::get('/category/{slug}',[App\Http\Controllers\PostController::class, 'postByCategory'])->name('category.posts');
 
 Route::get('/tags/{slug}',[App\Http\Controllers\PostController::class, 'postBytags'])->name('tags.posts');
+
+Route::get('/search',[App\Http\Controllers\SearchController::class, 'search'])->name('search');
+
 /// All Routes are here
  
 Route::group(['middleware'=>['auth']], function (){
