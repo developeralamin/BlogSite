@@ -1,6 +1,6 @@
 @extends('layouts.backend.app')
 
-@section('title','Post')
+@section('title','Suscriber')
 
 @push('css')
  
@@ -21,7 +21,7 @@
                     <div class="card">
                         <div class="header">
                              <h2>
-                            ALL Post
+                            ALL SUSCRIBER
                             <span class="badge bg-blue"></span>
                         </h2>
                             <ul class="header-dropdown m-r--5">
@@ -63,7 +63,7 @@
         onclick="deletesuscribeber({{ $suscribeber->id }})" >
             <i class="material-icons">delete</i>
         </button>
-    <form id="delete-form-{{$suscribeber->id}}" action="{{ route('admin.suscribeber.destroy',$suscribeber->id)}} " method="POST" style="display: none;">
+    <form id="deletefsd-form-{{$suscribeber->id}}" action="{{ route('admin.suscribeber.destroy',$suscribeber->id)}} " method="POST" style="display: none;">
             @csrf
             @method('DELETE')
    </form>
@@ -123,7 +123,7 @@
             }).then((result) => {
                 if (result.value) {
                     event.preventDefault();
-                    document.getElementById('delete-form-').submit();
+                    document.getElementById('deletefsd-form-'+id).submit();
                 } else if (
                     // Read more about handling dismissals
                     result.dismiss === swal.DismissReason.cancel

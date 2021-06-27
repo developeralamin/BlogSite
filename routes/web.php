@@ -40,6 +40,9 @@ Route::group(['middleware'=>['auth']], function (){
 
 Route::post('suscribe', [App\Http\Controllers\SuscriberController::class, 'store'])->name('suscribe.store');
 
+
+
+
 ///Admin All Routes are here
 Route::group(['as' =>'admin.','prefix'=>'admin','middleware' =>['auth','admin']],function(){
 
@@ -52,6 +55,7 @@ Route::put('password-update', [App\Http\Controllers\Admin\SettingController::cla
 
 
 Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class,'index'])->name('dashboard');
+
 Route::resource('tags', App\Http\Controllers\Admin\TagController::class);
 Route::resource('category', App\Http\Controllers\Admin\CategoryController::class);
 Route::resource('post', App\Http\Controllers\Admin\PostController::class);
@@ -72,6 +76,11 @@ Route::get('/favorite',[App\Http\Controllers\Admin\FavoriteController::class,'in
 Route::get('comment',[App\Http\Controllers\Admin\CommentController::class,'index'])->name('comment.index');
 
 Route::delete('comment/{id}',[App\Http\Controllers\Admin\CommentController::class,'destroy'])->name('comment.destroy');
+
+
+Route::get('author',[App\Http\Controllers\Admin\AuthorController::class,'index'])->name('author.index');
+
+Route::delete('author/{id}',[App\Http\Controllers\Admin\AuthorController::class,'destroy'])->name('author.destroy');
 
 
 });

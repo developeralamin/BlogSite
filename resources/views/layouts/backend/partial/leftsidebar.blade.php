@@ -92,10 +92,18 @@
                     </a>
              </li>
 
-               <li class="{{ Request::is('admin/comment') ? 'active' : '' }}">
+            <li class="{{ Request::is('admin/comment') ? 'active' : '' }}">
                     <a href="{{ route('admin.comment.index') }}">
                         <i class="material-icons">comment</i>
                         <span>Comments</span>
+                    </a>
+             </li>
+
+
+              <li class="{{ Request::is('admin/author') ? 'active' : '' }}">
+                    <a href="{{ route('admin.author.index') }}">
+                        <i class="material-icons">account_circle</i>
+                        <span>AUthors</span>
                     </a>
              </li>
 
@@ -133,6 +141,9 @@
                     </li>
 
              @endif
+
+
+
 
              @if(Request::is('author*'))
 
