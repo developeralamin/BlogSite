@@ -103,7 +103,7 @@
               <li class="{{ Request::is('admin/author') ? 'active' : '' }}">
                     <a href="{{ route('admin.author.index') }}">
                         <i class="material-icons">account_circle</i>
-                        <span>AUthors</span>
+                        <span>Authors</span>
                     </a>
              </li>
 

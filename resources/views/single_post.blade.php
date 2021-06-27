@@ -9,7 +9,7 @@
     <link href="{{ asset('assets/fontend/css/post/responsive.css') }}" rel="stylesheet">
     <style>
         .slider{
-            height: 400px;
+            height: 600px;
             width: 100%;
             background-image: url({{ Storage::disk('public')->url('post/'.$post->image) }});
             background-size: cover;
@@ -49,28 +49,28 @@
                 <a class="avatar" href="#"><img src="{{ Storage::disk('public')->url('profile/'.$post->user->image) }}" alt="Profile Image"></a>
             </div>
 
-                                <div class="middle-area">
-                                    <a class="name" href="#"><b>{{ $post->user->name }}</b></a>
-                                    <h6 class="date">on {{ $post->created_at->diffForHumans() }}</h6>
-                                </div>
+        <div class="middle-area">
+            <a class="name" href="#"><b>{{ $post->user->name }}</b></a>
+            <h6 class="date">on {{ $post->created_at->diffForHumans() }}</h6>
+        </div>
 
-                            </div><!-- post-info -->
+        </div><!-- post-info -->
 
-                            <h3 class="title"><a href="#"><b>{{ $post->title }}</b></a></h3>
+        <h3 class="title"><a href="#"><b>{{ $post->title }}</b></a></h3>
 
-                            <p class="para">{!! html_entity_decode($post->body) !!}</p>
+        <p class="para">{!! html_entity_decode($post->body) !!}</p>
 
+
+        <ul class="tags">
             
-                            <ul class="tags">
-                                
-                                    
-                              @foreach($post->tags as $taf)
-                                <li><a href="{{ route('tags.posts',$taf->slug) }}">{{ $taf->name }}</a></li>
-                               @endforeach
-                                
-                               
-                            </ul>
-                        </div><!-- blog-post-inner -->
+                
+          @foreach($post->tags as $taf)
+            <li><a href="{{ route('tags.posts',$taf->slug) }}">{{ $taf->name }}</a></li>
+           @endforeach
+            
+           
+        </ul>
+    </div><!-- blog-post-inner -->
 
                         <div class="post-icons-area">
                                    <ul class="post-icons">
@@ -227,7 +227,9 @@
                     </div><!-- comment-form -->
 
         <h4><b>COMMENTS ({{ $post->comments()->count() }}) </b></h4>
+
  @if($post->comments->count() > 0)
+ 
         @foreach($post->comments as $comment)
 
                     <div class="commnets-area">

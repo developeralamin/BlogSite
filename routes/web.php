@@ -17,6 +17,8 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Auth::routes();
 
+Route::get('profile/{username}',[App\Http\Controllers\AuthorController::class, 'profile'])->name('author.profile');
+
 Route::get('posts',[App\Http\Controllers\PostController::class, 'all_post'])->name('post.index');
 
 Route::get('post/{slug}',[App\Http\Controllers\PostController::class, 'index'])->name('post.details');

@@ -1,54 +1,24 @@
 @extends('layouts.frontend.app')
 
-@section('title','Login')
+@section('title','Profile')
 
 @push('css')
+    <link href="{{ asset('assets/fontend/css/profile/styles.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/fontend/css/profile/responsive.css') }}" rel="stylesheet">
+    <style>
 
-    {{-- <link href="front-page-category/css/styles.css" rel="stylesheet"> --}}
-    <link href="{{ asset('assets/fontend/css/home/styles.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/fontend/css/home/responsive.css') }}" rel="stylesheet">
-
- <style>
         .favorite_posts{
             color: blue;
         }
+
     </style>
-
-    {{-- <link href="front-page-category/css/responsive.css" rel="stylesheet"> --}}
-
 @endpush
-
 
 @section('content')
 
- <div class="main-slider">
-        <div class="swiper-container position-static" data-slide-effect="slide" data-autoheight="false"
-            data-swiper-speed="500" data-swiper-autoplay="10000" data-swiper-margin="0" data-swiper-slides-per-view="4"
-            data-swiper-breakpoints="true" data-swiper-loop="true" >
-            <div class="swiper-wrapper">
 
-              @foreach($categories as $category)  
-                <div class="swiper-slide">
-                    <a class="slider-category" href="{{ route('category.posts',$category->slug) }}">
-                        <div class="blog-image"><img src="{{ Storage::disk('public')->url('category/slider/'.$category->image) }} " alt="{{ $category->name }}"></div>
-
-                        <div class="category">
-                            <div class="display-table center-text">
-                                <div class="display-table-cell">
-                                    <h3><b>{{ $category->name }}</b></h3>
-                                </div>
-                            </div>
-                        </div>
-
-                    </a>
-                </div><!-- swiper-slide -->
-
-               @endforeach()
-
-            </div><!-- swiper-wrapper -->
-
-        </div><!-- swiper-container -->
-
+    <div class="slider display-table center-text">
+        <h1 class="title display-table-cell"><b>{{ $author->name }}</b></h1>
     </div><!-- slider -->
 
     <section class="blog-area section">
@@ -56,8 +26,14 @@
 
             <div class="row">
 
-                @foreach($posts as $post)
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-8 col-md-12">
+                    <div class="row">
+
+    @if($posts->count() > 0)
+         @foreach($posts as $post)
+
+
+                <div class="col-md-6 col-sm-6">
                     <div class="card h-100">
                         <div class="single-post post-style-1">
 
@@ -104,14 +80,51 @@
                         </div><!-- single-post -->
                     </div><!-- card -->
                 </div><!-- col-lg-4 col-md-6 -->
-                @endforeach()
-               
-            </div><!-- row -->
 
-            {{-- <a class="load-more-btn" href="#"><b>LOAD MORE</b></a> --}}
+
+     @endforeach()
+
+     @else
+
+        <div class="commnets-area ">
+
+            <div class="comment">
+                <p>Sorry ! No Post here. :)</p>
+        </div>
+        </div>
+
+     @endif
+                    
+
+                    </div><!-- row -->
+
+                    {{-- <a class="load-more-btn" href="#"><b>LOAD MORE</b></a> --}}
+
+                </div><!-- col-lg-8 col-md-12 -->
+
+                <div class="col-lg-4 col-md-12 ">
+
+                    <div class="single-post info-area ">
+
+                          <div class="about-area">
+                            <h4 class="title"><b>ABOUT AUTHOR</b></h4>
+                            <p>{{ $author->name }}</p><br>
+                            <p>{{ $author->about }}</p><br>
+                            <strong>Author Since: {{ $author->created_at->toDateString() }}</strong><br>
+                            <strong>Total Posts : {{ $author->posts->count() }}</strong>
+                        </div>
+
+
+                    </div><!-- info-area -->
+
+                </div><!-- col-lg-4 col-md-12 -->
+
+            </div><!-- row -->
 
         </div><!-- container -->
     </section><!-- section -->
+
+
 
 
 @endsection
