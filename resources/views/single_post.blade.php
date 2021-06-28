@@ -156,7 +156,10 @@
 
         <div class="blog-image"><img src="{{ Storage::disk('public')->url('post/'.$randompost->image) }}" alt="{{ $randompost->title }}"></div>
 
-        <a class="avatar" href="#"><img src="{{ Storage::disk('public')->url('profile/'.$randompost->user->image) }}" alt="Profile Image"></a>
+        <a class="avatar" href="{{ route('author.profile',$randompost->user->user_name) }} "><img src="{{ Storage::disk('public')->url('profile/'.$randompost->user->image) }}" alt="Profile Image"></a>
+
+       {{--  <a class="avatar" href="{{ route('author.profile',$post->user->user_name) }}"><img src="{{ Storage::disk('public')->url('profile/'.$post->user->image) }}" alt="Profile Image"></a> --}}
+
 
      <div class="blog-info">
 
