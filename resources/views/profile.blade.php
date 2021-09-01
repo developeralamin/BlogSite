@@ -110,7 +110,7 @@
                             <h4 class="title"><b>ABOUT AUTHOR</b></h4>
                             <p>{{ $author->name }}</p><br>
                             <p>{{ $author->about }}</p><br>
-                            <strong>Author Since: {{ $author->created_at->toDateString() }}</strong><br>
+                         <strong>Author Since: {{ $author->created_at->toDateString() }}</strong><br>
                             <strong>Total Posts : {{ $author->posts->count() }}</strong>
                         </div>
 
