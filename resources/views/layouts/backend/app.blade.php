@@ -8,7 +8,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+<link rel="icon" href="{{ asset('assets/backend/images/fav.jpg') }}">
     <title>@yield('title') - {{ config('app.name', 'Laravel') }}</title>
     
     <!-- Google Fonts -->
@@ -34,7 +34,11 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="{{ asset('assets/backend/css/themes/all-themes.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+
     @stack('css')
+
+
 </head>
 <body class="theme-blue">
 <!-- Page Loader -->
@@ -80,7 +84,13 @@
 </section>
 
 <section class="content">
+
+
+
     @yield('content')
+
+
+
 </section>
 
 <!-- Jquery Core Js -->

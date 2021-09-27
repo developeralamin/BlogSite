@@ -1,6 +1,6 @@
 @extends('layouts.frontend.app')
 
-@section('title','Login')
+@section('title','pStudyNote')
 
 @push('css')
 

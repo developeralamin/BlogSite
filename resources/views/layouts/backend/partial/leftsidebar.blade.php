@@ -49,6 +49,13 @@
                         </a>
                     </li>
 
+                     <li class="{{ Request::is('home') ? 'active' : '' }}">
+                        <a target="__blank" href="{{ route('home') }}">
+                             <i class="fa fa-globe"></i>
+                            <span>Visit Website</span>
+                        </a>
+                    </li>
+
 
                <li class="{{ Request::is('admin/tags*') ? 'active' : '' }}">
                     <a href="{{ route('admin.tags.index') }}">
